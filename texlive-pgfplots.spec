@@ -1,3 +1,9 @@
+# revision 23292
+# category Package
+# catalog-ctan /graphics/pgf/contrib/pgfplots
+# catalog-date 2011-07-29 16:36:04 +0200
+# catalog-license gpl
+# catalog-version 1.5
 Name:		texlive-pgfplots
 Version:	1.5
 Release:	1
@@ -306,6 +312,7 @@ LaTeX/TeX/ConTeXt.
 #- source
 %doc %{_texmfdistdir}/source/context/third/pgfplots/pgfplotstests.zip
 %doc %{_texmfdistdir}/source/latex/pgfplots/pgfplotstests.zip
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -316,3 +323,5 @@ LaTeX/TeX/ConTeXt.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar scripts tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
