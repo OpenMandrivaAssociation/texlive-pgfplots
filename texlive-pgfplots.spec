@@ -6,7 +6,7 @@
 # catalog-version 1.5
 Name:		texlive-pgfplots
 Version:	1.5
-Release:	1
+Release:	2
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pgf/contrib/pgfplots
