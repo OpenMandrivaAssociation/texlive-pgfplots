@@ -1,12 +1,12 @@
-# revision 23292
+# revision 24977
 # category Package
 # catalog-ctan /graphics/pgf/contrib/pgfplots
-# catalog-date 2011-07-29 16:36:04 +0200
+# catalog-date 2011-12-29 22:44:25 +0100
 # catalog-license gpl
-# catalog-version 1.5
+# catalog-version 1.5.1
 Name:		texlive-pgfplots
-Version:	1.5
-Release:	2
+Version:	1.5.1
+Release:	1
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pgf/contrib/pgfplots
@@ -82,6 +82,8 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_tikzlibraryexternal.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfplotscompatib/tikzlibrarydateplot.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfplots.multiaxis.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfplots.paths.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.revision.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplotscore.code.tex
@@ -119,6 +121,10 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_10.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_11.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_11.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_12.pdf
+%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_12.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_13.pdf
+%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_13.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_2.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_2.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_3.pdf
@@ -300,8 +306,8 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/plain/pgfplots/pgfplotsexample.pdf
 %doc %{_texmfdistdir}/doc/plain/pgfplots/pgfplotsexample.tex
 #- source
-%doc %{_texmfdistdir}/source/context/third/pgfplots/pgfplotstests.zip
-%doc %{_texmfdistdir}/source/latex/pgfplots/pgfplotstests.zip
+%doc %{_texmfdistdir}/source/context/third/pgfplots/pgfplotstests.tar.bz2
+%doc %{_texmfdistdir}/source/latex/pgfplots/pgfplotstests.tar.bz2
 
 #-----------------------------------------------------------------------
 %prep
