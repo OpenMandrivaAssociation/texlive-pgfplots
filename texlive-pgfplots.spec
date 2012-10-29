@@ -1,11 +1,11 @@
-# revision 24977
+# revision 28094
 # category Package
 # catalog-ctan /graphics/pgf/contrib/pgfplots
-# catalog-date 2011-12-29 22:44:25 +0100
+# catalog-date 2012-10-26 15:30:09 +0200
 # catalog-license gpl
-# catalog-version 1.5.1
+# catalog-version 1.7
 Name:		texlive-pgfplots
-Version:	1.5.1
+Version:	1.7
 Release:	1
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
@@ -62,6 +62,7 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/lua/pgfplots.lua
 %{_texmfdistdir}/tex/generic/pgfplots/numtable/pgfplotstable.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
@@ -69,6 +70,8 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_misc.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfcoreexternal.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfcoreimage.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfcorelayers.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfcorescopes.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfkeys.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfkeysfiltered.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex
@@ -85,6 +88,7 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.multiaxis.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.paths.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.revision.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfplots.scaling.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplotscore.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
@@ -95,6 +99,7 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
 %{_texmfdistdir}/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/util/pgfplotsutil.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex
@@ -113,38 +118,10 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/Makefile
 %doc %{_texmfdistdir}/doc/latex/pgfplots/TeX-programming-notes.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/TeX-programming-notes.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_0.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_0.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_1.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_1.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_10.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_10.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_11.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_11.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_12.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_12.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_13.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_13.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_2.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_2.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_3.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_3.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_4.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_4.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_5.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_5.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_6.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_6.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_7.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_7.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_8.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_8.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_9.pdf
-%doc %{_texmfdistdir}/doc/latex/pgfplots/bugtracker/minimal_9.tex
-%doc %{_texmfdistdir}/doc/latex/pgfplots/cartesian_phase_diagram.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/external1.gnuplot
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/external1.png
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/external2.pdf
+%doc %{_texmfdistdir}/doc/latex/pgfplots/figures/pgfplots-surface-cutoff.png
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/pgfplotsclickable-fig1.png
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/pgfplotsclickable-fig2.png
 %doc %{_texmfdistdir}/doc/latex/pgfplots/figures/pgfplotsclickable-fig3.png
@@ -161,7 +138,6 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gallery/Makefile
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gallery/extractexamples.pl
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gallery/gallery.css
-%doc %{_texmfdistdir}/doc/latex/pgfplots/gibbs_phase_diagram.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gnuplot/pgfplots_DoG.gnuplot
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gnuplot/pgfplots_DoG.table
 %doc %{_texmfdistdir}/doc/latex/pgfplots/gnuplot/pgfplots_exp
@@ -204,6 +180,7 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.mst
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.preamble.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.preliminaries.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.2dplots.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.3dconfiguration.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.3dplots.tex
@@ -214,6 +191,7 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.coordfiltering.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.errorbars.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.gridoptions-axiscoordinates.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.layers.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.linefitting.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.markers-meta.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.miscellaneous.tex
@@ -224,6 +202,7 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.styleoptions.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.symbolic-transformations.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.symbolic.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.technicalinternals.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.tickoptions.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.reference.tikzinteroperability.tex
@@ -234,6 +213,12 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.testtable2.dat
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.timeseries.dat
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.title_abstract_intro.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.titlepage.pdf
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.titlepage.tex
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.titlepage_contourtmp0.dat
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.titlepage_contourtmp0.script
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.titlepage_contourtmp0.table
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots_contourtmp0.dat
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots_contourtmp0.script
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots_contourtmp0.table
