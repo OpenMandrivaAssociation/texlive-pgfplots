@@ -1,12 +1,12 @@
-# revision 31822
+# revision 33097
 # category Package
 # catalog-ctan /graphics/pgf/contrib/pgfplots
-# catalog-date 2013-10-03 20:59:17 +0200
+# catalog-date 2014-03-04 06:56:29 +0100
 # catalog-license gpl
-# catalog-version 1.9
+# catalog-version 1.10
 Name:		texlive-pgfplots
-Version:	1.9
-Release:	5
+Version:	1.10
+Release:	1
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pgf/contrib/pgfplots
@@ -50,7 +50,9 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.colormaps.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.dateplot.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.external.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.groupplots.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patchplots.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/libs/tikzlibrarypgfplots.polar.code.tex
@@ -76,15 +78,20 @@ LaTeX/TeX/ConTeXt.
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfkeys.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfkeysfiltered.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryintersections.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryplothandlers.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmanual.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmanual.pdflinks.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmanual.prettyprinter.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmathfloat.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_tikzexternal.sty
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_tikzexternalshared.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_tikzlibraryexternal.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/oldpgfplotscompatib/tikzlibrarydateplot.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex
+%{_texmfdistdir}/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.errorbars.code.tex
 %{_texmfdistdir}/tex/generic/pgfplots/pgfplots.markers.code.tex
@@ -122,15 +129,13 @@ LaTeX/TeX/ConTeXt.
 %doc %{_texmfdistdir}/doc/context/third/pgfplots/pgfplotsexample-context.tex
 %doc %{_texmfdistdir}/doc/generic/pgfplots/README
 %doc %{_texmfdistdir}/doc/latex/pgfplots/TeX-programming-notes.pdf
+%doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplots.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplotsexample.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplotsexample.tex
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplotstable.pdf
 %doc %{_texmfdistdir}/doc/latex/pgfplots/pgfplotstodo.pdf
 %doc %{_texmfdistdir}/doc/plain/pgfplots/pgfplotsexample-plain.pdf
 %doc %{_texmfdistdir}/doc/plain/pgfplots/pgfplotsexample-plain.tex
-#- source
-%doc %{_texmfdistdir}/source/context/third/pgfplots/pgfplotstests.context.tar.bz2
-%doc %{_texmfdistdir}/source/latex/pgfplots/pgfplotstests.tar.bz2
 
 #-----------------------------------------------------------------------
 %prep
@@ -141,5 +146,6 @@ LaTeX/TeX/ConTeXt.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar scripts tex doc source %{buildroot}%{_texmfdistdir}
+rm %{buildroot}%{_texmfdistdir}/source/latex/pgfplots/pgfplotstests.tar.bz2
 rm %{buildroot}%{_texmfdistdir}/doc/latex/pgfplots/pgfplots.doc.src.tar.bz2
-rm %{buildroot}%{_texmfdistdir}/doc/latex/pgfplots/pgfplots.pdf
+rm %{buildroot}%{_texmfdistdir}/source/context/third/pgfplots/pgfplotstests.context.tar.bz2
