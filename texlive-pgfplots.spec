@@ -1,5 +1,5 @@
 Name:		texlive-pgfplots
-Version:	1.15
+Version:	1.16
 Release:	1
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
