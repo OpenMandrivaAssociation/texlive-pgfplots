@@ -3,7 +3,7 @@ Version:	61719
 Release:	2
 Summary:	Create normal/logarithmic plots in two and three dimensions
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/graphics/pgf/contrib/pgfplots
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/pgfplots
 License:	GPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgfplots.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgfplots.doc.r%{version}.tar.xz
